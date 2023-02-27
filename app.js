@@ -12,4 +12,22 @@ const cuadricula = document.querySelector(".cuadricula");
 const resultado = document.querySelector("#resultado");
 var cartasescogidas = [];
 var cartasescogidasid = [];
-var catasGanadas = [];
+var cartasGanadas = [];
+
+// siguiente 
+
+function crearTablero (){
+
+  for (let i=0; i< cardAdj.length; i++){
+    var carta = document.createElement("imagenes");
+
+    carta.setAttribute("src", "imagenes/aru.png");
+    carta.setAttribute("data-id", i);
+    carta.addEventListener("click", voltearCarta);
+    cuadricula.appendChild(carta);
+  }
+  }
+}
+
+
+
