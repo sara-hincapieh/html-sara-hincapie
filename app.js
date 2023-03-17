@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoad", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const cardAdj = [
     { name: "cab.jpg", img: "imagenes/cab.jpg" },
     { name: "can.jpg", img: "imagenes/can.jpg" },
