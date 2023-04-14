@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   var cartasEscogidasId = [];
   var cartasGanadas = [];
 
-  // siguiente
+  // 1
 
   function crearTablero() {
     for (let i = 0; i < cardAdj.length; i++) {
@@ -32,6 +32,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  //2
+
+  function verificarPareja() {
+    var cards = document.querySelectorAll("img");
+    const opcionUnoId = cartasEscogidasId[0];
+    const opcionDosId = cartasEscogidasId[1];
+
+    if (opcionUnoId === opcionDosId) {
+      cards[opcionUnoId].setAttribute("src", "imagenes/aru.png");
+      cards[opcionDosId].setAttribute("src", "imagenes/aru.png");
+      alert(" Incorrecto. Diste click a la misma imagen!");
+    } else if (cartasEscogidas[0] === cartasEscogidas[1]) {
+      alert("¡Correcto!");
+
+      cards[opcionUnoId].setAttribute("src", "imagenes/bla.png");
+      cards[opcionDosId].setAttribute("src", "imagenes/bla.png");
+      cards[opcionUnoId].removeEventListener("click", voltearCarta);
+      cards[opcionDosId].removeEventListener("click", voltearCarta);
+      cartasGanadas.push(cartasEscogidas);
+    } else {
+      cards[opcionUnoId].setAttribute("src", "imagenes/aru.png");
+      cards[opcionDosId].setAttribute("src", "imagenes/aru.png");
+      alert("¡Intenta de nuevo!");
+    }
+    cartasEscogidas = [];
+    cartasEscogidasId = [];
+
+    resultado.textContent = cartasGanadas.length;
+
+    if (cartasGanadas.length === cardAdj.length / 2) {
+      resultado.textContent = "¡Bien hecho, encontraste todos los pares!";
+    }
+  }
+
+  // 3
   function voltearCarta() {
     var cardId = this.getAttribute("data-id");
     cartasEscogidas.push(cardAdj[cardId].name);
